@@ -1,10 +1,9 @@
 from selenium import webdriver
-from getpass import getpass
+from selenium.webdriver.common.keys import Keys
 import time
 
 username = 'yourname'
 password = 'yourpass'
-
 
 #webd = webdriver.Chrome('./chromedriver') Windows Path
 webd = webdriver.Chrome('/usr/bin/chromedriver') #Linux Path
@@ -16,9 +15,4 @@ element_user = webd.find_element_by_name("username")
 element_user.send_keys(username)
 
 element_pass = webd.find_element_by_name("password")
-element_pass.send_keys(password)
-
-login_b = webd.find_element_by_class_name("L3NKy")
-time.sleep(2)
-login_b.submit()
-time.sleep(2)
+element_pass.send_keys(password,Keys.RETURN)
